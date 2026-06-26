@@ -1,0 +1,17 @@
+1. ¿Qué diferencia existe entre BLOCKED y SUSPENDED? 
+Con Blocked, la tarea espera a que suceda un evento par que se pueda reanudar, suspend, la tarea ya no se puede reaundar y se detiene explicitamente
+2. ¿Por qué vTaskDelay() coloca una tarea en estado BLOCKED? 
+Para indicarle al scheduler que debe esperar a que ocurra un evento
+3. ¿Qué diferencia existe entre vTaskDelay() y un Software Timer? 
+vTaskDelay le pone una pausa a la tarea, el software timer no lo hace pero inicializa un temporizador que activa un callback fuera de la tarea 
+donde se inicio el timer.
+4. ¿Qué función cumple el Idle Task? 
+Grantiza que el microcontrolador siempre se mantenga ocupado
+5. ¿Cómo decide FreeRTOS cuál tarea ejecutar cuando varias tienen la misma prioridad? 
+Utiliza Round Robin, reprtiendo las tareas al CPU en la misma cantidad de tiempo
+6. ¿Qué ventajas aporta pvParameters? 
+Te permite guardar en una struct todo lo que una tarea necesita y pasar el apuntador a esa estructura, permite pasar cualquier tipo de dato.	
+7. ¿Qué ventajas aporta TaskHandle_t? 
+Con el TaskHandle_t sirve para suspender, reanudar  o destruir tareas en especifico 
+8. ¿Qué ocurriría si el contador se implementara con variables globales únicamente? 
+Se produce una condición de carrera.
